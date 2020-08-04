@@ -4,13 +4,9 @@ const both = (a, b) => a && b;
 
 const either = (a, b) => a || b;
 
-//come back
-const none = (a, b) => !a && !b;
+const none = (a, b) => !(a || b);
 
-//come back
-const one = (a, b) => {
-  // your code here
-};
+const one = (a, b) => (a && !b) || (!a && b);
 
 const truthiness = a => Boolean(a);
 
@@ -27,12 +23,17 @@ const isEven = a => a % 2 === 0;
 const isSquare = a => Math.sqrt(a) === Math.floor(Math.sqrt(a));
 
 const startsWith = (char, string) => {
-  // your code here
+  for (let i = 0; i < char.length; i++) {
+    if (char[i] !== string[i]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 const containsVowels = string => {
   const newString = string.toLowerCase();
-  const vowels = ["a", "e", "i", "o", "u"];
+  const vowels = "aeiou";
   for (let i = 0; i < vowels.length; i++) {
     for (let j = 0; j < newString.length; j++) {
       if (vowels[i] === newString[j]) {
@@ -44,7 +45,8 @@ const containsVowels = string => {
 };
 
 const isLowerCase = string => {
-  // your code here
+  const testString = string.toLowerCase();
+  return testString === string;
 };
 
 module.exports = {
