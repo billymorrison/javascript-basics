@@ -1,42 +1,61 @@
 const createPerson = (name, age) => {
-  // your code here
-};
+  return {name: name, age: age};
+}
 
-const getName = object => {
-  // your code here
-};
+const getName = object => object.name;
 
-const getProperty = (property, object) => {
-  // your code here
-};
+const getProperty = (property, object) => object[property];
 
-const hasProperty = (property, object) => {
-  // your code here
-};
+const hasProperty = (property, object) => Boolean(object[property]);
 
-const isOver65 = person => {
-  // your code here
-};
+const isOver65 = person => person.age > 65;
 
 const getAges = people => {
-  // your code here
+  const ages = [];
+  for (let i = 0; i < people.length; i++) {
+    ages.push(people[i].age);
+  }
+  return ages;
 };
 
 const findByName = (name, people) => {
-  // your code here
+  for (let i = 0; i < people.length; i++) {
+    if (people[i].name === name) {
+      return people[i];
+    }
+  }
 };
 
 const findHondas = cars => {
-  // your code here
+  const hondaCars = [];
+  for (let i = 0; i < cars.length; i++) {
+    if (cars[i].manufacturer === "Honda") {
+      hondaCars.push(cars[i]);
+    }
+  }
+  return hondaCars;
 };
 
 const averageAge = people => {
-  // your code here
+  const ages = [];
+  for (let i = 0; i < people.length; i++) {
+    ages.push(people[i].age);
+  }
+  const averageAge = 
+    ages.reduce((accumulator, currentValue) => accumulator + currentValue, 0) /
+    ages.length;
+  return averageAge;
 };
 
-const createTalkingPerson = (name, age) => {
-  // your code here
-};
+function createTalkingPerson(name, age) {
+  return {
+    name: name,
+    age: age,
+    introduce: function (inputName) { 
+      return `Hi ${inputName}, my name is ${this.name} and I am ${this.age}!` 
+    }
+  }
+}
 
 module.exports = {
   createPerson,
